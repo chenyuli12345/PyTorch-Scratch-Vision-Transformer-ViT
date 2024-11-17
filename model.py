@@ -75,8 +75,8 @@ class SelfAttention(nn.Module):
         self.n_attention_heads  = n_attention_heads
         self.head_embed_dim     = embed_dim // n_attention_heads
 
-        self.queries            = nn.Linear(self.embed_dim, self.head_embed_dim * self.n_attention_heads)   # Queries projection
-        self.keys               = nn.Linear(self.embed_dim, self.head_embed_dim * self.n_attention_heads)   # Keys projection
+        self.queries            = nn.Linear(self.embed_dim, self.head_embed_dim * self.n_attention_heads)   # Queries projection，该quadratic
+        self.keys               = nn.Linear(self.embed_dim, self.head_embed_dim * self.n_attention_heads)   # Keys projection，删了
         self.values             = nn.Linear(self.embed_dim, self.head_embed_dim * self.n_attention_heads)   # Values projection
         self.out_projection     = nn.Linear(self.head_embed_dim * self.n_attention_heads, self.embed_dim)   # Out projection
 
